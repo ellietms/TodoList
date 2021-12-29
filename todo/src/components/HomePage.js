@@ -1,17 +1,16 @@
 import React, { useState } from "react";
-import ListTodo from "./ListTodo";
+import ListOfTodos from "./ListOfTodos";
 
-const TodoList = () => {
+const HomePage = () => {
   const [todo, setTodo] = useState("");
-  const [listTodo, setListTodo] = useState([]);
-
+  const [listOfTodos, setListOfTodos] = useState([]);
   const handleTodo = (event) => {
     setTodo(event.target.value);
   };
 
   const submitTodo = (event) => {
     event.preventDefault();
-    setListTodo([...listTodo, todo]);
+    setListOfTodos([...listOfTodos, todo]);
   };
 
   const page = (
@@ -23,7 +22,7 @@ const TodoList = () => {
           onChange={(event) => handleTodo(event)}
         />
         <button type="submit">submit</button>
-        <ListTodo listTodo={listTodo} />
+        <ListOfTodos listOfTodos={listOfTodos} />
       </form>
     </>
   );
@@ -31,4 +30,4 @@ const TodoList = () => {
   return <div>{page}</div>;
 };
 
-export default TodoList;
+export default HomePage;

@@ -1,12 +1,12 @@
 import React from "react";
 
-const ListTodos = ({ listTodo }) => {
+const listOfTodos = ({ listOfTodos }) => {
   let page;
-  if (listTodo.length !== 0) {
+  if (listOfTodos.length !== 0) {
     page = (
       <div>
         <h3> My Todolist</h3>
-        {listTodo.map((eachTodo, index) => (
+        {listOfTodos.map((eachTodo, index) => (
           <div key={index}>
             <input type="checkbox" id="todoList" name={eachTodo}>
               <label for={eachTodo}> {eachTodo} </label>
@@ -25,4 +25,4 @@ const ListTodos = ({ listTodo }) => {
   return <>{page}</>;
 };
 
-export default ListTodos;
+export default listOfTodos;

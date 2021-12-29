@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import TodoList from "./components/TodoList";
+import HomePage from "./components/HomePage";
 
 function App() {
   return (
     <>
-      <TodoList />
+      <HomePage />
     </>
   );
 }
