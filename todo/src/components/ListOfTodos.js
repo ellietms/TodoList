@@ -1,19 +1,17 @@
 import React from "react";
+import Todo from "./EachTodo";
 
 const listOfTodos = ({ listOfTodos }) => {
   let page;
   if (listOfTodos.length !== 0) {
     page = (
-      <div>
-        <h3> My Todolist</h3>
-        {listOfTodos.map((eachTodo, index) => (
-          <div key={index}>
-            <input type="checkbox" id="todoList" name={eachTodo}>
-              <label for={eachTodo}> {eachTodo} </label>
-            </input>
-          </div>
+      <ul>
+        {listOfTodos.map((eachTodo) => (
+          <li key={eachTodo.id}>
+            <Todo eachTodo={eachTodo} />
+          </li>
         ))}
-      </div>
+      </ul>
     );
   } else {
     page = (

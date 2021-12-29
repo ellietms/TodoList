@@ -1,28 +1,17 @@
 import React, { useState } from "react";
-import ListOfTodos from "./ListOfTodos";
 
-const HomePage = () => {
-  const [todo, setTodo] = useState("");
-  const [listOfTodos, setListOfTodos] = useState([]);
-  const handleTodo = (event) => {
-    setTodo(event.target.value);
-  };
-
-  const submitTodo = (event) => {
-    event.preventDefault();
-    setListOfTodos([...listOfTodos, todo]);
-  };
-
+const HomePage = ({ todo, handleTodo, handleBtn }) => {
   const page = (
     <>
-      <form onSubmit={(event) => submitTodo(event)}>
+      <form>
         <input
           type="text"
           value={todo}
           onChange={(event) => handleTodo(event)}
         />
-        <button type="submit">submit</button>
-        <ListOfTodos listOfTodos={listOfTodos} />
+        <button type="submit" onClick={handleBtn}>
+          submit
+        </button>
       </form>
     </>
   );
