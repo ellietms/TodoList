@@ -19,6 +19,7 @@ const Todo = ({ eachTodo, handleDelete, handleEdit }) => {
         >
           Edit
         </button>
+        {eachTodo.edit === true && <form></form>}
       </div>
     </div>
   );

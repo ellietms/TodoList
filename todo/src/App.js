@@ -14,10 +14,7 @@ function App() {
 
   const handleBtn = (event) => {
     event.preventDefault();
-    setListOfTodos([
-      ...listOfTodos,
-      { text: todo, completed: false, id: nanoid() },
-    ]);
+    setListOfTodos([...listOfTodos, { text: todo, edit: false, id: nanoid() }]);
     setTodo("");
   };
 
@@ -26,7 +23,12 @@ function App() {
     setListOfTodos(filteredList);
   };
 
-  const handleEdit = (event) => {};
+  const handleEdit = (event) => {
+    console.log(event.text);
+    let thisOne = listOfTodos.find((todo) => todo.text === event.text);
+    thisOne.edit = true;
+    console.log("What", thisOne);
+  };
 
   console.log("TOdos", listOfTodos);
 
