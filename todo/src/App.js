@@ -16,6 +16,7 @@ function App() {
   const handleBtn = (event) => {
     event.preventDefault();
     setListOfTodos([...listOfTodos, { text: todo, edit: false, id: nanoid() }]);
+    setTodo("");
   };
 
   const handleDelete = (event) => {
