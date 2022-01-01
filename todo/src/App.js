@@ -7,6 +7,7 @@ import { nanoid } from "nanoid";
 function App() {
   const [todo, setTodo] = useState("");
   const [listOfTodos, setListOfTodos] = useState([]);
+  const [editAvailable, setEditAvailable] = useState(false);
 
   const handleTodo = (event) => {
     setTodo(event.target.value);
@@ -15,19 +16,24 @@ function App() {
   const handleBtn = (event) => {
     event.preventDefault();
     setListOfTodos([...listOfTodos, { text: todo, edit: false, id: nanoid() }]);
-    setTodo("");
   };
 
   const handleDelete = (event) => {
     let filteredList = listOfTodos.filter((todo) => todo.text !== event.text);
     setListOfTodos(filteredList);
+    setTodo("");
   };
 
   const handleEdit = (event) => {
-    console.log(event.text);
     let thisOne = listOfTodos.find((todo) => todo.text === event.text);
-    thisOne.edit = true;
-    console.log("What", thisOne);
+    if (thisOne.edit == true) {
+      setEditAvailable(false);
+      thisOne.edit = false;
+    } else {
+      thisOne.edit = true;
+      setEditAvailable(true);
+    }
+    console.log("NEWTODO", listOfTodos);
   };
 
   console.log("TOdos", listOfTodos);
@@ -39,6 +45,12 @@ function App() {
         listOfTodos={listOfTodos}
         handleDelete={(event) => handleDelete(event)}
         handleEdit={(event) => handleEdit(event)}
+        editAvailable={editAvailable}
+        setEditAvailable={setEditAvailable}
+        setTodo={setTodo}
+        setListOfTodos={setListOfTodos}
+        todo={todo}
+        listOfTodos={listOfTodos}
       />
     </div>
   );

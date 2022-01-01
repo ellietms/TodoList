@@ -1,7 +1,16 @@
 import React from "react";
 import Todo from "./EachTodo";
 
-const listOfTodos = ({ listOfTodos, handleDelete, handleEdit }) => {
+const listOfTodos = ({
+  listOfTodos,
+  handleDelete,
+  handleEdit,
+  editAvailable,
+  setEditAvailable,
+  setTodo,
+  setListOfTodos,
+  todo,
+}) => {
   let page;
   if (listOfTodos.length !== 0) {
     page = (
@@ -12,6 +21,12 @@ const listOfTodos = ({ listOfTodos, handleDelete, handleEdit }) => {
               eachTodo={eachTodo}
               handleDelete={handleDelete}
               handleEdit={handleEdit}
+              editAvailable={editAvailable}
+              setEditAvailable={setEditAvailable}
+              setTodo={setTodo}
+              setListOfTodos={setListOfTodos}
+              todo={todo}
+              listOfTodos={listOfTodos}
             />
           </li>
         ))}
