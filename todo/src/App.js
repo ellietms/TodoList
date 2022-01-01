@@ -22,8 +22,11 @@ function App() {
   };
 
   const handleDelete = (event) => {
-    console.log("WORKED", event);
-    // console.log(eachTodo);
+    // event.preventDefault();
+    console.log("WORKED", event.text);
+    let filteredList = listOfTodos.filter((todo) => todo.text !== event.text);
+    console.log("filtering", filteredList);
+    setListOfTodos([...filteredList]);
   };
 
   const handleEdit = (event) => {};
