@@ -25,15 +25,14 @@ function App() {
   };
 
   const handleEdit = (event) => {
-    let thisOne = listOfTodos.find((todo) => todo.text === event.text);
-    if (thisOne.edit == true) {
+    let currentTodo = listOfTodos.find((todo) => todo.text === event.text);
+    if (currentTodo.edit == true) {
       setEditAvailable(false);
-      thisOne.edit = false;
+      currentTodo.edit = false;
     } else {
-      thisOne.edit = true;
+      currentTodo.edit = true;
       setEditAvailable(true);
     }
-    console.log("NEWTODO", listOfTodos);
   };
 
   console.log("TOdos", listOfTodos);
@@ -45,11 +44,7 @@ function App() {
         listOfTodos={listOfTodos}
         handleDelete={(event) => handleDelete(event)}
         handleEdit={(event) => handleEdit(event)}
-        editAvailable={editAvailable}
         setEditAvailable={setEditAvailable}
-        setTodo={setTodo}
-        setListOfTodos={setListOfTodos}
-        todo={todo}
         listOfTodos={listOfTodos}
       />
     </div>

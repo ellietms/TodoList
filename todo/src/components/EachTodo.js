@@ -1,18 +1,8 @@
 /* eslint-disable */
 import React, { useState } from "react";
 import "../App.css";
-import listOfTodos from "./ListOfTodos";
 
-const Todo = ({
-  eachTodo,
-  handleDelete,
-  handleEdit,
-  editAvailable,
-  setEditAvailable,
-  setTodo,
-  setListOfTodos,
-  todo,
-}) => {
+const Todo = ({ eachTodo, handleDelete, handleEdit, setEditAvailable }) => {
   const [inputValue, setInputValue] = useState(eachTodo.text);
 
   const handleEditFormText = (event) => {
@@ -35,7 +25,7 @@ const Todo = ({
     </>
   );
 
-  return (
+  const todoBox = (
     <div className="eachTodo">
       {eachTodo.edit == false && <p className="todo-text">{eachTodo.text}</p>}
       {eachTodo.edit == true && editForm}
@@ -55,6 +45,8 @@ const Todo = ({
       </div>
     </div>
   );
+
+  return <>{todoBox}</>;
 };
 
 export default Todo;
