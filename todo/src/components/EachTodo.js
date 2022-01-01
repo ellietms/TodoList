@@ -1,5 +1,5 @@
 /* eslint-disable */
-import React from "react";
+import React, { useState } from "react";
 import "../App.css";
 import listOfTodos from "./ListOfTodos";
 
@@ -13,19 +13,24 @@ const Todo = ({
   setListOfTodos,
   todo,
 }) => {
+  const [inputValue, setInputValue] = useState(eachTodo.text);
+
   const handleEditFormText = (event) => {
-    setTodo(event.target.value);
+    setInputValue(event.target.value);
   };
 
   const submitNewTodo = (event) => {
-    event.text = todo;
+    event.text = inputValue;
     setEditAvailable(false);
     event.edit = false;
   };
 
   const editForm = (
     <>
-      <input value={todo} onChange={(event) => handleEditFormText(event)} />
+      <input
+        value={inputValue}
+        onChange={(event) => handleEditFormText(event)}
+      />
       <button onClick={(event) => submitNewTodo(eachTodo)}>submit</button>
     </>
   );
