@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React, { useState } from "react";
 import HomePage from "./components/HomePage";
 import ListOfTodos from "./components/ListOfTodos";
@@ -20,13 +21,23 @@ function App() {
     setTodo("");
   };
 
+  const handleDelete = (eachTodo) => {
+    console.log(eachTodo);
+  };
+
+  const handleEdit = (event) => {};
+
   console.log("TOdos", listOfTodos);
 
   return (
-    <>
+    <div className="container">
       <HomePage handleTodo={handleTodo} handleBtn={handleBtn} todo={todo} />
-      <ListOfTodos listOfTodos={listOfTodos} />
-    </>
+      <ListOfTodos
+        listOfTodos={listOfTodos}
+        handleDelete={(eachTodo) => handleDelete(eachTodo)}
+        handleEdit={handleEdit}
+      />
+    </div>
   );
 }
 

@@ -1,12 +1,23 @@
+/* eslint-disable */
 import React from "react";
+import "../App.css";
 
-const Todo = ({ eachTodo }) => {
+const Todo = ({ eachTodo, handleDelete, handleEdit }) => {
   return (
-    <>
-      <input type="text" id="todoList" name={eachTodo}>
-        {eachTodo.text}
-      </input>
-    </>
+    <div className="eachTodo">
+      <p className="todo-text">{eachTodo.text}</p>
+      <div className="buttons-container">
+        <button
+          onClick={(eachTodo) => handleDelete(eachTodo.id)}
+          className="todo-button-style"
+        >
+          delete
+        </button>
+        <button onClick={handleEdit} className="todo-button-style">
+          Edit
+        </button>
+      </div>
+    </div>
   );
 };
 
