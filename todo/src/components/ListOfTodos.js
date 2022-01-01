@@ -10,7 +10,7 @@ const listOfTodos = ({ listOfTodos, handleDelete, handleEdit }) => {
           <li key={eachTodo.id}>
             <Todo
               eachTodo={eachTodo}
-              handleDelete={(eachTodo) => handleDelete(eachTodo)}
+              handleDelete={handleDelete}
               handleEdit={handleEdit}
             />
           </li>

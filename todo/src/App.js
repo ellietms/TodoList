@@ -21,8 +21,9 @@ function App() {
     setTodo("");
   };
 
-  const handleDelete = (eachTodo) => {
-    console.log(eachTodo);
+  const handleDelete = (event) => {
+    console.log("WORKED", event);
+    // console.log(eachTodo);
   };
 
   const handleEdit = (event) => {};
@@ -34,7 +35,7 @@ function App() {
       <HomePage handleTodo={handleTodo} handleBtn={handleBtn} todo={todo} />
       <ListOfTodos
         listOfTodos={listOfTodos}
-        handleDelete={(eachTodo) => handleDelete(eachTodo)}
+        handleDelete={(event) => handleDelete(event)}
         handleEdit={handleEdit}
       />
     </div>

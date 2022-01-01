@@ -8,7 +8,7 @@ const Todo = ({ eachTodo, handleDelete, handleEdit }) => {
       <p className="todo-text">{eachTodo.text}</p>
       <div className="buttons-container">
         <button
-          onClick={(eachTodo) => handleDelete(eachTodo.id)}
+          onClick={(event) => handleDelete(eachTodo)}
           className="todo-button-style"
         >
           delete
