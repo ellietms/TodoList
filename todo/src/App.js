@@ -22,11 +22,8 @@ function App() {
   };
 
   const handleDelete = (event) => {
-    // event.preventDefault();
-    console.log("WORKED", event.text);
     let filteredList = listOfTodos.filter((todo) => todo.text !== event.text);
-    console.log("filtering", filteredList);
-    setListOfTodos([...filteredList]);
+    setListOfTodos(filteredList);
   };
 
   const handleEdit = (event) => {};
@@ -39,7 +36,7 @@ function App() {
       <ListOfTodos
         listOfTodos={listOfTodos}
         handleDelete={(event) => handleDelete(event)}
-        handleEdit={handleEdit}
+        handleEdit={(event) => handleEdit(event)}
       />
     </div>
   );

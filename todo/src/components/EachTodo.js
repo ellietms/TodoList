@@ -13,7 +13,10 @@ const Todo = ({ eachTodo, handleDelete, handleEdit }) => {
         >
           delete
         </button>
-        <button onClick={handleEdit} className="todo-button-style">
+        <button
+          onClick={(event) => handleEdit(eachTodo)}
+          className="todo-button-style"
+        >
           Edit
         </button>
       </div>
