@@ -12,7 +12,7 @@ const listOfTodos = ({
     page = (
       <ul className="no-bullet-point">
         {listOfTodos.map((eachTodo) => (
-          <li key={eachTodo.id}>
+          <li className="editForm" key={eachTodo.id}>
             <Todo
               eachTodo={eachTodo}
               handleDelete={handleDelete}

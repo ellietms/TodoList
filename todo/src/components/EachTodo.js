@@ -16,13 +16,13 @@ const Todo = ({ eachTodo, handleDelete, handleEdit, setEditAvailable }) => {
   };
 
   const editForm = (
-    <>
+    <div>
       <input
         value={inputValue}
         onChange={(event) => handleEditFormText(event)}
       />
       <button onClick={(event) => submitNewTodo(eachTodo)}>submit</button>
-    </>
+    </div>
   );
 
   const todoBox = (

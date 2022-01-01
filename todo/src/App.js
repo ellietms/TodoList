@@ -40,6 +40,7 @@ function App() {
 
   return (
     <div className="container">
+      <h2>Todo List</h2>
       <HomePage handleTodo={handleTodo} handleBtn={handleBtn} todo={todo} />
       <ListOfTodos
         listOfTodos={listOfTodos}
