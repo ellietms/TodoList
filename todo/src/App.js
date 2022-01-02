@@ -8,6 +8,7 @@ function App() {
   const [todo, setTodo] = useState("");
   const [listOfTodos, setListOfTodos] = useState([]);
   const [editAvailable, setEditAvailable] = useState(false);
+  const [count, setCount] = useState(0);
 
   const handleTodo = (event) => {
     setTodo(event.target.value);
@@ -15,7 +16,11 @@ function App() {
 
   const handleBtn = (event) => {
     event.preventDefault();
-    setListOfTodos([...listOfTodos, { text: todo, edit: false, id: nanoid() }]);
+    setListOfTodos([
+      ...listOfTodos,
+      { text: todo, edit: false, id: nanoid(), sort: count },
+    ]);
+    setCount(count + 1);
     setTodo("");
   };
 
@@ -36,7 +41,8 @@ function App() {
     }
   };
 
-  console.log("TOdos", listOfTodos);
+  //
+  console.log("TOdos Sorted", listOfTodos);
 
   return (
     <div className="container">

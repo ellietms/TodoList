@@ -11,17 +11,20 @@ const listOfTodos = ({
   if (listOfTodos.length !== 0) {
     page = (
       <ul className="no-bullet-point">
-        {listOfTodos.map((eachTodo) => (
-          <li className="editForm" key={eachTodo.id}>
-            <Todo
-              eachTodo={eachTodo}
-              handleDelete={handleDelete}
-              handleEdit={handleEdit}
-              setEditAvailable={setEditAvailable}
-              listOfTodos={listOfTodos}
-            />
-          </li>
-        ))}
+        {/* .sort((a, b) => (a.name > b.name ? 1 : -1)) */}
+        {listOfTodos
+          .sort((a, b) => (a.sort < b.sort ? 1 : -1))
+          .map((eachTodo) => (
+            <li className="editForm" key={eachTodo.id}>
+              <Todo
+                eachTodo={eachTodo}
+                handleDelete={handleDelete}
+                handleEdit={handleEdit}
+                setEditAvailable={setEditAvailable}
+                listOfTodos={listOfTodos}
+              />
+            </li>
+          ))}
       </ul>
     );
   } else {
