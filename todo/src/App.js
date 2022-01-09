@@ -1,6 +1,6 @@
 /* eslint-disable */
 import React, { useState } from "react";
-import HomePage from "./components/HomePage";
+import TodoCreator from "./components/TodoCreator";
 import ListOfTodos from "./components/ListOfTodos";
 import { nanoid } from "nanoid";
 
@@ -44,7 +44,7 @@ function App() {
   return (
     <div className="container">
       <h2>Todo List</h2>
-      <HomePage
+      <TodoCreator
         handleTodo={handleTodo}
         handleBtn={handleBtn}
         newTodo={newTodo}

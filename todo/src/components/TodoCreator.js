@@ -1,7 +1,7 @@
 /* eslint-disable */
 import React from "react";
 
-const HomePage = ({ newTodo, handleTodo, handleBtn }) => {
+const TodoCreator = ({ newTodo, handleTodo, handleBtn }) => {
   const page = (
     <div>
       <form className="form-container">
@@ -21,4 +21,4 @@ const HomePage = ({ newTodo, handleTodo, handleBtn }) => {
   return <div>{page}</div>;
 };
 
-export default HomePage;
+export default TodoCreator;
