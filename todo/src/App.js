@@ -8,7 +8,6 @@ function App() {
   const [newTodo, setNewTodo] = useState("");
   const [listOfTodos, setListOfTodos] = useState([]);
   const [editAvailable, setEditAvailable] = useState(false);
-  const [count, setCount] = useState(0);
 
   const handleTodo = (event) => {
     setNewTodo(event.target.value);
@@ -18,14 +17,12 @@ function App() {
     event.preventDefault();
     setListOfTodos([
       ...listOfTodos,
-      { text: newTodo, edit: false, id: nanoid(), sort: count },
+      { text: newTodo, edit: false, id: nanoid(), sort: listOfTodos.length },
     ]);
-    setCount(count + 1);
     setNewTodo("");
   };
 
   const handleDelete = (event) => {
-    console.log("EVENT DELETE", event);
     let filteredList = listOfTodos.filter((todo) => todo.id !== event.id);
     setListOfTodos(filteredList);
     setNewTodo("");
@@ -42,7 +39,6 @@ function App() {
     }
   };
 
-  //
   console.log("TOdos Sorted", listOfTodos);
 
   return (
@@ -58,7 +54,6 @@ function App() {
         handleDelete={(event) => handleDelete(event)}
         handleEdit={(event) => handleEdit(event)}
         setEditAvailable={setEditAvailable}
-        listOfTodos={listOfTodos}
       />
     </div>
   );
