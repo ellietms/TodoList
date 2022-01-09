@@ -5,29 +5,29 @@ import ListOfTodos from "./components/ListOfTodos";
 import { nanoid } from "nanoid";
 
 function App() {
-  const [todo, setTodo] = useState("");
+  const [newTodo, setNewTodo] = useState("");
   const [listOfTodos, setListOfTodos] = useState([]);
   const [editAvailable, setEditAvailable] = useState(false);
   const [count, setCount] = useState(0);
 
   const handleTodo = (event) => {
-    setTodo(event.target.value);
+    setNewTodo(event.target.value);
   };
 
   const handleBtn = (event) => {
     event.preventDefault();
     setListOfTodos([
       ...listOfTodos,
-      { text: todo, edit: false, id: nanoid(), sort: count },
+      { text: newTodo, edit: false, id: nanoid(), sort: count },
     ]);
     setCount(count + 1);
-    setTodo("");
+    setNewTodo("");
   };
 
   const handleDelete = (event) => {
     let filteredList = listOfTodos.filter((todo) => todo.text !== event.text);
     setListOfTodos(filteredList);
-    setTodo("");
+    setNewTodo("");
   };
 
   const handleEdit = (event) => {
@@ -47,7 +47,11 @@ function App() {
   return (
     <div className="container">
       <h2>Todo List</h2>
-      <HomePage handleTodo={handleTodo} handleBtn={handleBtn} todo={todo} />
+      <HomePage
+        handleTodo={handleTodo}
+        handleBtn={handleBtn}
+        newTodo={newTodo}
+      />
       <ListOfTodos
         listOfTodos={listOfTodos}
         handleDelete={(event) => handleDelete(event)}
