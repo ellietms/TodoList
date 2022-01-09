@@ -1,14 +1,14 @@
 /* eslint-disable */
-import React, { useState } from "react";
+import React from "react";
 
-const HomePage = ({ todo, handleTodo, handleBtn }) => {
+const HomePage = ({ newTodo, handleTodo, handleBtn }) => {
   const page = (
     <div>
       <form className="form-container">
         <input
           className="input-container"
           type="text"
-          value={todo}
+          value={newTodo}
           onChange={(event) => handleTodo(event)}
         />
         <button className="button-submit" type="submit" onClick={handleBtn}>
