@@ -17,9 +17,21 @@ function App() {
     event.preventDefault();
     setListOfTodos([
       ...listOfTodos,
-      { text: newTodo, edit: false, id: nanoid(), sort: listOfTodos.length },
+      {
+        text: newTodo,
+        edit: false,
+        id: nanoid(),
+        sort: listOfTodos.length,
+        checked: false,
+      },
     ]);
     setNewTodo("");
+  };
+
+  const isChecked = (todo) => {
+    if (todo.checked === false) {
+      todo.checked = true;
+    }
   };
 
   const handleDelete = (event) => {
@@ -54,6 +66,7 @@ function App() {
         handleDelete={(event) => handleDelete(event)}
         handleEdit={(event) => handleEdit(event)}
         setEditAvailable={setEditAvailable}
+        isChecked={(todo) => isChecked(todo)}
       />
     </div>
   );

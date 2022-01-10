@@ -2,7 +2,13 @@
 import React, { useState } from "react";
 import "../App.css";
 
-const Todo = ({ eachTodo, handleDelete, handleEdit, setEditAvailable }) => {
+const Todo = ({
+  eachTodo,
+  handleDelete,
+  handleEdit,
+  setEditAvailable,
+  isChecked,
+}) => {
   const [inputValue, setInputValue] = useState(eachTodo.text);
 
   const handleEditFormText = (event) => {
@@ -27,7 +33,18 @@ const Todo = ({ eachTodo, handleDelete, handleEdit, setEditAvailable }) => {
 
   const todoBox = (
     <div className="eachTodo">
-      {eachTodo.edit == false && <p className="todo-text">{eachTodo.text}</p>}
+      {eachTodo.edit == false && (
+        <>
+          <input
+            type="checkbox"
+            checked={eachTodo.checked}
+            className="todo-text"
+            value={eachTodo.text}
+            onChange={(event) => isChecked(eachTodo)}
+          />
+          <label>{eachTodo.text}</label>
+        </>
+      )}
       {eachTodo.edit == true && editForm}
       <div className="buttons-container">
         <button
