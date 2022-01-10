@@ -6,6 +6,7 @@ const listOfTodos = ({
   handleDelete,
   handleEdit,
   setEditAvailable,
+  isChecked,
 }) => {
   let page;
   if (listOfTodos.length !== 0) {
@@ -21,6 +22,7 @@ const listOfTodos = ({
                 handleEdit={handleEdit}
                 setEditAvailable={setEditAvailable}
                 listOfTodos={listOfTodos}
+                isChecked={isChecked}
               />
             </li>
           ))}
