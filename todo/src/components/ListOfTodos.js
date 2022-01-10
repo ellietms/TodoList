@@ -1,5 +1,5 @@
 import React from "react";
-import Todo from "./EachTodo";
+import EachTodo from "./EachTodo";
 
 const listOfTodos = ({
   listOfTodos,
@@ -15,7 +15,7 @@ const listOfTodos = ({
           .sort((a, b) => (a.sort < b.sort ? 1 : -1))
           .map((eachTodo) => (
             <li className="editForm" key={eachTodo.id}>
-              <Todo
+              <EachTodo
                 eachTodo={eachTodo}
                 handleDelete={handleDelete}
                 handleEdit={handleEdit}

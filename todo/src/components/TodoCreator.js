@@ -1,7 +1,7 @@
 /* eslint-disable */
 import React from "react";
 
-const TodoCreator = ({ newTodo, handleTodo, handleBtn }) => {
+const TodoCreator = ({ newTodo, handleNewTodo, addNewTodo }) => {
   const page = (
     <div>
       <form className="form-container">
@@ -9,10 +9,10 @@ const TodoCreator = ({ newTodo, handleTodo, handleBtn }) => {
           className="input-container"
           type="text"
           value={newTodo}
-          onChange={(event) => handleTodo(event)}
+          onChange={(event) => handleNewTodo(event)}
         />
-        <button className="button-submit" type="submit" onClick={handleBtn}>
-          submit
+        <button className="button-submit" type="submit" onClick={addNewTodo}>
+          add
         </button>
       </form>
     </div>

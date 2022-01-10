@@ -9,11 +9,11 @@ function App() {
   const [listOfTodos, setListOfTodos] = useState([]);
   const [editAvailable, setEditAvailable] = useState(false);
 
-  const handleTodo = (event) => {
+  const handleNewTodo = (event) => {
     setNewTodo(event.target.value);
   };
 
-  const handleBtn = (event) => {
+  const addNewTodo = (event) => {
     event.preventDefault();
     setListOfTodos([
       ...listOfTodos,
@@ -45,8 +45,8 @@ function App() {
     <div className="container">
       <h2>Todo List</h2>
       <TodoCreator
-        handleTodo={handleTodo}
-        handleBtn={handleBtn}
+        handleNewTodo={handleNewTodo}
+        addNewTodo={addNewTodo}
         newTodo={newTodo}
       />
       <ListOfTodos
