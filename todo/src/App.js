@@ -3,11 +3,12 @@ import React, { useState } from "react";
 import TodoCreator from "./components/TodoCreator";
 import ListOfTodos from "./components/ListOfTodos";
 import { nanoid } from "nanoid";
-import { DragDropContext } from "react-beautiful-dnd";
 
 function App() {
   const [newTodo, setNewTodo] = useState("");
-  const [listOfTodos, setListOfTodos] = useState(["Hi"]);
+  const [listOfTodos, setListOfTodos] = useState([
+    { text: "Hi", id: 1, edit: false },
+  ]);
   const [editAvailable, setEditAvailable] = useState(false);
 
   const handleNewTodo = (event) => {
@@ -62,17 +63,13 @@ function App() {
         addNewTodo={addNewTodo}
         newTodo={newTodo}
       />
-      <DragDropContext
-        onDragEnd={(...props) => console.log("DRAG PROPS", props)}
-      >
-        <ListOfTodos
-          listOfTodos={listOfTodos}
-          handleDelete={(event) => handleDelete(event)}
-          handleEdit={(event) => handleEdit(event)}
-          setEditAvailable={setEditAvailable}
-          isChecked={(todo) => isChecked(todo)}
-        />
-      </DragDropContext>
+      <ListOfTodos
+        listOfTodos={listOfTodos}
+        handleDelete={(event) => handleDelete(event)}
+        handleEdit={(event) => handleEdit(event)}
+        setEditAvailable={setEditAvailable}
+        isChecked={(todo) => isChecked(todo)}
+      />
     </div>
   );
 }
