@@ -78,13 +78,18 @@ function App() {
       <div>
         <DragDropContext>
           <Droppable droppableId="todolists">
-            <ListOfTodos
-              listOfTodos={listOfTodos}
-              handleDelete={(event) => handleDelete(event)}
-              handleEdit={(event) => handleEdit(event)}
-              setEditAvailable={setEditAvailable}
-              isChecked={(todo) => isChecked(todo)}
-            />
+            {(provided) => (
+              <div {...provided.droppableProps} ref={provided.innerRef}>
+                <ListOfTodos
+                  listOfTodos={listOfTodos}
+                  handleDelete={(event) => handleDelete(event)}
+                  handleEdit={(event) => handleEdit(event)}
+                  setEditAvailable={setEditAvailable}
+                  isChecked={(todo) => isChecked(todo)}
+                />
+                {provided.placeholder}
+              </div>
+            )}
           </Droppable>
         </DragDropContext>
       </div>
