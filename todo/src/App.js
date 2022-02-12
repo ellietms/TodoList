@@ -54,15 +54,14 @@ function App() {
 
   console.log("TOdos Sorted", listOfTodos);
 
-  const handleOnDragEnd = (draggedCard) => {
-    console.log("===HERE===", draggedCard);
-    // const allHugs = [...allCards];
-    // console.log("HUG", allHugs);
-    // const [reorderedCard] = allHugs.splice(draggedCard.source.index, 1);
-    // console.log("RESULT", reorderedCard);
-    // allHugs.splice(draggedCard.destination.index, 0, reorderedCard);
-    // console.log("NEW", allHugs);
-    // setAllCards(allHugs);
+  const handleOnDragEnd = (draggedTodo) => {
+    const newOrderedTodoList = [...listOfTodos];
+    const [reorderedTodo] = newOrderedTodoList.splice(
+      draggedTodo.source.index,
+      1
+    );
+    newOrderedTodoList.splice(draggedTodo.destination.index, 0, reorderedTodo);
+    setListOfTodos(newOrderedTodoList);
   };
 
   let pageModel = (
@@ -76,7 +75,7 @@ function App() {
         />
       </div>
       <div>
-        <DragDropContext>
+        <DragDropContext onDragEnd={handleOnDragEnd}>
           <Droppable droppableId="todolists">
             {(provided) => (
               <div {...provided.droppableProps} ref={provided.innerRef}>
