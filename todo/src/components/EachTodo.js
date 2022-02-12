@@ -35,13 +35,13 @@ const Todo = ({
     <div className="eachTodo">
       {eachTodo.edit == false && (
         <>
-          <input
+          {/* <input
             type="checkbox"
             checked={eachTodo.checked}
             className="todo-text"
             value={eachTodo.text}
             onChange={(event) => isChecked(eachTodo)}
-          />
+          /> */}
           <label>{eachTodo.text}</label>
         </>
       )}
