@@ -1,5 +1,6 @@
 /* eslint-disable */
 import React, { useState } from "react";
+import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 import TodoCreator from "./components/TodoCreator";
 import ListOfTodos from "./components/ListOfTodos";
 import { nanoid } from "nanoid";
@@ -53,23 +54,48 @@ function App() {
 
   console.log("TOdos Sorted", listOfTodos);
 
-  return (
-    <div className="container">
-      <h2>Todo List</h2>
-      <TodoCreator
-        handleNewTodo={handleNewTodo}
-        addNewTodo={addNewTodo}
-        newTodo={newTodo}
-      />
-      <ListOfTodos
-        listOfTodos={listOfTodos}
-        handleDelete={(event) => handleDelete(event)}
-        handleEdit={(event) => handleEdit(event)}
-        setEditAvailable={setEditAvailable}
-        isChecked={(todo) => isChecked(todo)}
-      />
+  const handleOnDragEnd = (draggedTodo) => {
+    const newOrderedTodoList = [...listOfTodos];
+    const [reorderedTodo] = newOrderedTodoList.splice(
+      draggedTodo.source.index,
+      1
+    );
+    newOrderedTodoList.splice(draggedTodo.destination.index, 0, reorderedTodo);
+    setListOfTodos(newOrderedTodoList);
+  };
+
+  let pageModel = (
+    <div>
+      <div className="container">
+        <h2>Todo List</h2>
+        <TodoCreator
+          handleNewTodo={handleNewTodo}
+          addNewTodo={addNewTodo}
+          newTodo={newTodo}
+        />
+      </div>
+      <div>
+        <DragDropContext onDragEnd={handleOnDragEnd}>
+          <Droppable droppableId="todolists">
+            {(provided) => (
+              <div {...provided.droppableProps} ref={provided.innerRef}>
+                <ListOfTodos
+                  listOfTodos={listOfTodos}
+                  handleDelete={(event) => handleDelete(event)}
+                  handleEdit={(event) => handleEdit(event)}
+                  setEditAvailable={setEditAvailable}
+                  isChecked={(todo) => isChecked(todo)}
+                />
+                {provided.placeholder}
+              </div>
+            )}
+          </Droppable>
+        </DragDropContext>
+      </div>
     </div>
   );
+
+  return pageModel;
 }
 
 export default App;
