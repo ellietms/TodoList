@@ -1,5 +1,6 @@
 import React from "react";
 import EachTodo from "./EachTodo";
+import { Draggable } from "react-beautiful-dnd";
 
 const listOfTodos = ({
   listOfTodos,
@@ -14,16 +15,30 @@ const listOfTodos = ({
       <ul className="no-bullet-point">
         {listOfTodos
           .sort((a, b) => (a.sort < b.sort ? 1 : -1))
-          .map((eachTodo) => (
+          .map((eachTodo, index) => (
             <li className="editForm" key={eachTodo.id}>
-              <EachTodo
-                eachTodo={eachTodo}
-                handleDelete={handleDelete}
-                handleEdit={handleEdit}
-                setEditAvailable={setEditAvailable}
-                listOfTodos={listOfTodos}
-                isChecked={isChecked}
-              />
+              <Draggable
+                key={eachTodo.id}
+                draggableId={eachTodo.id}
+                index={index}
+              >
+                {(provided) => (
+                  <div
+                    {...provided.draggableProps}
+                    {...provided.dragHandleProps}
+                    ref={provided.innerRef}
+                  >
+                    <EachTodo
+                      eachTodo={eachTodo}
+                      handleDelete={handleDelete}
+                      handleEdit={handleEdit}
+                      setEditAvailable={setEditAvailable}
+                      listOfTodos={listOfTodos}
+                      isChecked={isChecked}
+                    />
+                  </div>
+                )}
+              </Draggable>
             </li>
           ))}
       </ul>
