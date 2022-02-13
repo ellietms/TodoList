@@ -13,6 +13,7 @@ const Todo = ({
 
   const handleEditFormText = (event) => {
     setInputValue(event.target.value);
+    console.log("EDIT", event);
   };
 
   const submitNewTodo = (event) => {
@@ -32,7 +33,7 @@ const Todo = ({
   );
 
   const todoBox = (
-    <div className="eachTodo">
+    <div className="eachTodo text-center">
       {eachTodo.edit == false && (
         <>
           {/* <input
