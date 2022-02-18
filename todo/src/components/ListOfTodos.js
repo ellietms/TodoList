@@ -8,6 +8,7 @@ const listOfTodos = ({
   handleEdit,
   setEditAvailable,
   isChecked,
+  todoDoneClass,
 }) => {
   let page;
   if (listOfTodos.length !== 0) {
@@ -33,6 +34,7 @@ const listOfTodos = ({
                     setEditAvailable={setEditAvailable}
                     listOfTodos={listOfTodos}
                     isChecked={isChecked}
+                    todoDoneClass={todoDoneClass}
                   />
                 </div>
               )}

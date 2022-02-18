@@ -9,6 +9,7 @@ function App() {
   const [newTodo, setNewTodo] = useState("");
   const [listOfTodos, setListOfTodos] = useState([]);
   const [editAvailable, setEditAvailable] = useState(false);
+  const [todoDoneClass, setTodoDoneClass] = useState();
 
   const handleNewTodo = (event) => {
     setNewTodo(event.target.value);
@@ -23,7 +24,7 @@ function App() {
         edit: false,
         id: nanoid(),
         sort: listOfTodos.length,
-        checked: false,
+        checked: null,
       },
     ]);
     setNewTodo("");
@@ -35,11 +36,24 @@ function App() {
     }
   };
 
-  const handleDelete = (event) => {
-    let filteredList = listOfTodos.filter((todo) => todo.id !== event.id);
-    setListOfTodos(filteredList);
-    setNewTodo("");
+  const handleDelete = (clickedtodo) => {
+    const index = listOfTodos.findIndex((todo) => todo.id === clickedtodo.id);
+    console.log("clicked index", index);
+    if (
+      listOfTodos[index].checked == null ||
+      listOfTodos[index].checked == false
+    ) {
+      listOfTodos[index].checked = true;
+      setTodoDoneClass("cross label");
+      console.log("after, true", listOfTodos[index]);
+    } else {
+      listOfTodos[index].checked = false;
+      setTodoDoneClass("disableCross");
+      console.log("after, false", listOfTodos[index]);
+    }
   };
+
+  console.log("CHECKING", listOfTodos);
 
   const handleEdit = (event) => {
     let currentTodo = listOfTodos.find((todo) => todo.text === event.text);
@@ -85,6 +99,7 @@ function App() {
                   handleEdit={(event) => handleEdit(event)}
                   setEditAvailable={setEditAvailable}
                   isChecked={(todo) => isChecked(todo)}
+                  todoDoneClass={todoDoneClass}
                 />
                 {provided.placeholder}
               </div>

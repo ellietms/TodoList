@@ -35,7 +35,6 @@
 
 .eachTodo {
   display: flex;
-  flex-direction: column;
   border: 5px black solid;
   width: 20%;
   overflow-x: scroll;
@@ -81,4 +80,20 @@
 
 .text-center {
   text-align: center;
+}
+
+.label {
+  font-size: 25px;
+  padding-top: 20px;
+}
+
+.cross {
+  opacity: 0.5;
+  text-decoration: line-through;
+  text-decoration-color: red;
+}
+
+.disableCross {
+  opacity: 0.5;
+  cursor: not-allowed;
 }

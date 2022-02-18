@@ -8,6 +8,7 @@ const Todo = ({
   handleEdit,
   setEditAvailable,
   isChecked,
+  todoDoneClass,
 }) => {
   const [inputValue, setInputValue] = useState(eachTodo.text);
 
@@ -34,25 +35,14 @@ const Todo = ({
 
   const todoBox = (
     <div className="eachTodo text-center">
-      {eachTodo.edit == false && (
-        <>
-          {/* <input
-            type="checkbox"
-            checked={eachTodo.checked}
-            className="todo-text"
-            value={eachTodo.text}
-            onChange={(event) => isChecked(eachTodo)}
-          /> */}
-          <label>{eachTodo.text}</label>
-        </>
-      )}
+      <label className={todoDoneClass}>{eachTodo.text}</label>
       {eachTodo.edit == true && editForm}
       <div className="buttons-container">
         <button
           onClick={(event) => handleDelete(eachTodo)}
           className="todo-button-style"
         >
-          delete
+          done
         </button>
         <button
           onClick={(event) => handleEdit(eachTodo)}
