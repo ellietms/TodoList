@@ -25,6 +25,7 @@ function App() {
         id: nanoid(),
         sort: listOfTodos.length,
         checked: null,
+        classCross: null,
       },
     ]);
     setNewTodo("");
@@ -36,7 +37,7 @@ function App() {
     }
   };
 
-  const handleDelete = (clickedtodo) => {
+  const handleDoneTodo = (clickedtodo) => {
     const index = listOfTodos.findIndex((todo) => todo.id === clickedtodo.id);
     console.log("clicked index", index);
     if (
@@ -45,15 +46,17 @@ function App() {
     ) {
       listOfTodos[index].checked = true;
       setTodoDoneClass("cross label");
-      console.log("after, true", listOfTodos[index]);
+      listOfTodos[index].classCross = todoDoneClass;
+      console.log("after checked", listOfTodos[index]);
     } else {
       listOfTodos[index].checked = false;
-      setTodoDoneClass("disableCross");
-      console.log("after, false", listOfTodos[index]);
+      setTodoDoneClass("disableCross label");
+      listOfTodos[index].classCross = todoDoneClass;
+      console.log("after unchecked", listOfTodos[index]);
     }
   };
 
-  console.log("CHECKING", listOfTodos);
+  console.log("All TODOS", listOfTodos);
 
   const handleEdit = (event) => {
     let currentTodo = listOfTodos.find((todo) => todo.text === event.text);
@@ -95,7 +98,7 @@ function App() {
               <div {...provided.droppableProps} ref={provided.innerRef}>
                 <ListOfTodos
                   listOfTodos={listOfTodos}
-                  handleDelete={(event) => handleDelete(event)}
+                  handleDoneTodo={(event) => handleDoneTodo(event)}
                   handleEdit={(event) => handleEdit(event)}
                   setEditAvailable={setEditAvailable}
                   isChecked={(todo) => isChecked(todo)}

@@ -4,7 +4,7 @@ import { Draggable } from "react-beautiful-dnd";
 
 const listOfTodos = ({
   listOfTodos,
-  handleDelete,
+  handleDoneTodo,
   handleEdit,
   setEditAvailable,
   isChecked,
@@ -29,7 +29,7 @@ const listOfTodos = ({
                 >
                   <EachTodo
                     eachTodo={eachTodo}
-                    handleDelete={handleDelete}
+                    handleDoneTodo={handleDoneTodo}
                     handleEdit={handleEdit}
                     setEditAvailable={setEditAvailable}
                     listOfTodos={listOfTodos}

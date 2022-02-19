@@ -4,10 +4,10 @@ import "../App.css";
 
 const Todo = ({
   eachTodo,
-  handleDelete,
+  handleDoneTodo,
   handleEdit,
   setEditAvailable,
-  isChecked,
+  // isChecked,
   todoDoneClass,
 }) => {
   const [inputValue, setInputValue] = useState(eachTodo.text);
@@ -33,23 +33,46 @@ const Todo = ({
     </div>
   );
 
+  let showEditButton;
+  if (eachTodo.checked === false || eachTodo.checked === null) {
+    showEditButton = (
+      <button
+        onClick={(event) => handleEdit(eachTodo)}
+        className="todo-button-style"
+      >
+        Edit
+      </button>
+    );
+  }
+
+  let showDoneButton;
+  if (eachTodo.checked === false || eachTodo.checked === null) {
+    showDoneButton = (
+      <button
+        onClick={(event) => handleDoneTodo(eachTodo)}
+        className="todo-button-style"
+      >
+        completed
+      </button>
+    );
+  } else {
+    showDoneButton = (
+      <button
+        onClick={(event) => handleDoneTodo(eachTodo)}
+        className="todo-button-style"
+      >
+        not completed
+      </button>
+    );
+  }
+
   const todoBox = (
     <div className="eachTodo text-center">
-      <label className={todoDoneClass}>{eachTodo.text}</label>
+      <label className={eachTodo.classCross}>{eachTodo.text}</label>
       {eachTodo.edit == true && editForm}
       <div className="buttons-container">
-        <button
-          onClick={(event) => handleDelete(eachTodo)}
-          className="todo-button-style"
-        >
-          done
-        </button>
-        <button
-          onClick={(event) => handleEdit(eachTodo)}
-          className="todo-button-style"
-        >
-          Edit
-        </button>
+        {showDoneButton}
+        {showEditButton}
       </div>
     </div>
   );
