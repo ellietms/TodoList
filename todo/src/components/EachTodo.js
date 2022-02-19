@@ -2,14 +2,7 @@
 import React, { useState } from "react";
 import "../App.css";
 
-const Todo = ({
-  eachTodo,
-  handleDoneTodo,
-  handleEdit,
-  setEditAvailable,
-  // isChecked,
-  todoDoneClass,
-}) => {
+const Todo = ({ eachTodo, handleDoneTodo, handleEdit, setEditAvailable }) => {
   const [inputValue, setInputValue] = useState(eachTodo.text);
 
   const handleEditFormText = (event) => {

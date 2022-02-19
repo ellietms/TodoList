@@ -9,7 +9,6 @@ function App() {
   const [newTodo, setNewTodo] = useState("");
   const [listOfTodos, setListOfTodos] = useState([]);
   const [editAvailable, setEditAvailable] = useState(false);
-  const [todoDoneClass, setTodoDoneClass] = useState();
 
   const handleNewTodo = (event) => {
     setNewTodo(event.target.value);
@@ -45,13 +44,13 @@ function App() {
       listOfTodos[index].checked == false
     ) {
       listOfTodos[index].checked = true;
+      listOfTodos[index].classCross = "cross label";
       setTodoDoneClass("cross label");
-      listOfTodos[index].classCross = todoDoneClass;
       console.log("after checked", listOfTodos[index]);
     } else {
       listOfTodos[index].checked = false;
+      listOfTodos[index].classCross = "disableCross label";
       setTodoDoneClass("disableCross label");
-      listOfTodos[index].classCross = todoDoneClass;
       console.log("after unchecked", listOfTodos[index]);
     }
   };
@@ -101,8 +100,6 @@ function App() {
                   handleDoneTodo={(event) => handleDoneTodo(event)}
                   handleEdit={(event) => handleEdit(event)}
                   setEditAvailable={setEditAvailable}
-                  isChecked={(todo) => isChecked(todo)}
-                  todoDoneClass={todoDoneClass}
                 />
                 {provided.placeholder}
               </div>
