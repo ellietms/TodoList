@@ -1,5 +1,5 @@
 /* eslint-disable */
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 import TodoCreator from "./components/TodoCreator";
 import ListOfTodos from "./components/ListOfTodos";
@@ -9,12 +9,17 @@ function App() {
   const [newTodo, setNewTodo] = useState("");
   const [listOfTodos, setListOfTodos] = useState([]);
   const [editAvailable, setEditAvailable] = useState(false);
+  const [completedTodoClass, setCompletedTodoClass] = useState();
+  const [id, setId] = useState(0);
+
+  useEffect(() => {}, [completedTodoClass]);
 
   const handleNewTodo = (event) => {
     setNewTodo(event.target.value);
   };
 
   const addNewTodo = (event) => {
+    setId(id + 1);
     event.preventDefault();
     setListOfTodos([
       ...listOfTodos,
@@ -22,7 +27,7 @@ function App() {
         text: newTodo,
         edit: false,
         id: nanoid(),
-        sort: listOfTodos.length,
+        sort: id,
         checked: null,
         classCross: null,
       },
@@ -30,11 +35,7 @@ function App() {
     setNewTodo("");
   };
 
-  const isChecked = (todo) => {
-    if (todo.checked === false) {
-      todo.checked = true;
-    }
-  };
+  console.log("IDS", id);
 
   const handleDoneTodo = (clickedtodo) => {
     const index = listOfTodos.findIndex((todo) => todo.id === clickedtodo.id);
@@ -45,12 +46,14 @@ function App() {
     ) {
       listOfTodos[index].checked = true;
       listOfTodos[index].classCross = "cross label";
-      setTodoDoneClass("cross label");
+      setCompletedTodoClass("cross label");
+      // setTodoDoneClass("cross label");
       console.log("after checked", listOfTodos[index]);
     } else {
       listOfTodos[index].checked = false;
       listOfTodos[index].classCross = "disableCross label";
-      setTodoDoneClass("disableCross label");
+      setCompletedTodoClass("disableCross label");
+      // setTodoDoneClass("disableCross label");
       console.log("after unchecked", listOfTodos[index]);
     }
   };
@@ -100,6 +103,7 @@ function App() {
                   handleDoneTodo={(event) => handleDoneTodo(event)}
                   handleEdit={(event) => handleEdit(event)}
                   setEditAvailable={setEditAvailable}
+                  completedTodoClass={completedTodoClass}
                 />
                 {provided.placeholder}
               </div>

@@ -2,7 +2,13 @@
 import React, { useState } from "react";
 import "../App.css";
 
-const Todo = ({ eachTodo, handleDoneTodo, handleEdit, setEditAvailable }) => {
+const Todo = ({
+  eachTodo,
+  handleDoneTodo,
+  handleEdit,
+  setEditAvailable,
+  completedTodoClass,
+}) => {
   const [inputValue, setInputValue] = useState(eachTodo.text);
 
   const handleEditFormText = (event) => {
@@ -59,16 +65,24 @@ const Todo = ({ eachTodo, handleDoneTodo, handleEdit, setEditAvailable }) => {
     );
   }
 
-  const todoBox = (
-    <div className="eachTodo text-center">
-      <label className={eachTodo.classCross}>{eachTodo.text}</label>
-      {eachTodo.edit == true && editForm}
-      <div className="buttons-container">
-        {showDoneButton}
-        {showEditButton}
+  let todoBox;
+  if (eachTodo.edit == false) {
+    todoBox = (
+      <div className="eachTodo text-center">
+        <label className={eachTodo.classCross}>{eachTodo.text}</label>
+        <div className="buttons-container">
+          {showDoneButton}
+          {showEditButton}
+        </div>
       </div>
-    </div>
-  );
+    );
+  } else {
+    todoBox = (
+      <div className="eachTodo text-center">
+        {eachTodo.edit == true && editForm}
+      </div>
+    );
+  }
 
   return <>{todoBox}</>;
 };
