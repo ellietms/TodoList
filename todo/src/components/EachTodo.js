@@ -7,7 +7,6 @@ const Todo = ({ eachTodo, handleDoneTodo, handleEdit, setEditAvailable }) => {
 
   const handleEditFormText = (event) => {
     setInputValue(event.target.value);
-    console.log("EDIT", event);
   };
 
   const submitNewTodo = (event) => {

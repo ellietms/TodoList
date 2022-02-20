@@ -7,7 +7,6 @@ const listOfTodos = ({
   handleDoneTodo,
   handleEdit,
   setEditAvailable,
-  // completedTodoClass,
 }) => {
   let page;
   if (listOfTodos.length !== 0) {
