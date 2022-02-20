@@ -21,7 +21,9 @@ const Todo = ({ eachTodo, handleDoneTodo, handleEdit, setEditAvailable }) => {
         value={inputValue}
         onChange={(event) => handleEditFormText(event)}
       />
-      <button onClick={(event) => submitNewTodo(eachTodo)}>submit</button>
+      <button onClick={(event) => submitNewTodo(eachTodo)}>
+        <span style={{ color: "green" }}>submit</span>
+      </button>
     </div>
   );
 
@@ -63,16 +65,14 @@ const Todo = ({ eachTodo, handleDoneTodo, handleEdit, setEditAvailable }) => {
   let todoBox;
   if (eachTodo.edit == false) {
     todoBox = (
-      <div className="eachTodo text-center">
+      <div className="eachTodo">
         <label className={eachTodo.classCross}>{eachTodo.text}</label>
         {showButtons}
       </div>
     );
   } else {
     todoBox = (
-      <div className="eachTodo text-center">
-        {eachTodo.edit == true && editForm}
-      </div>
+      <div className="eachTodo">{eachTodo.edit == true && editForm}</div>
     );
   }
 

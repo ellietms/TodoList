@@ -2,7 +2,14 @@
   border: 1px solid black;
   padding: 10px;
   margin: 100px;
-  box-shadow: rgb(39, 76, 85) 15px 20px;
+  background-color: rgb(236, 235, 215);
+  box-shadow: rgb(187, 187, 187) 35px 30px;
+}
+
+.header {
+  font-family: "Shizuru", cursive;
+  color: black;
+  font-size: 60px;
 }
 
 .container {
@@ -23,15 +30,23 @@
   font-size: large;
   width: 60%;
   border: none;
-  border-bottom: 3px solid black;
+  border-bottom: 5px solid rgb(187, 187, 187);
 }
 
 .button-submit {
   font-size: large;
   font-weight: bold;
+  cursor: pointer;
   padding: 2px;
-  background-color: rgb(196, 238, 196);
-  border: 3px black solid;
+  margin: 3px;
+  background-color: rgb(232, 233, 155);
+  border: 3px solid rgb(187, 187, 187);
+  opacity: 0.6;
+  transition: 0.3s;
+}
+
+.button-submit:hover {
+  opacity: 1;
 }
 
 .todo-container {
@@ -42,28 +57,35 @@
 }
 
 .eachTodo {
-  display: flex;
-  border: 5px black solid;
-  width: 20%;
+  border: 3px solid rgb(187, 187, 187);
+  border-bottom: none;
+  width: 300px;
   overflow-x: scroll;
   margin-top: 10px;
   margin-left: auto;
   margin-right: auto;
+  margin-bottom: 10px;
+  transition: 200ms;
+  background-color: rgb(192, 192, 192);
+  font-family: "Orbitron", sans-serif;
+  font-family: "Shizuru", cursive;
+  display: flex;
+  justify-content: center;
+}
+
+.eachTodo:hover {
+  transform: scale(1.02);
+  cursor: pointer;
 }
 
 .todo-text {
-  padding-left: 10px;
-  font-size: larger;
   font-weight: bold;
 }
 
 .buttons-container {
+  padding: 5px 0px;
+  width: 150px;
   margin-left: auto;
-  margin-right: auto;
-  width: 100%;
-  padding-top: 10%;
-  padding-left: auto;
-  padding-bottom: 10px;
 }
 
 .todo-button-style {
@@ -86,10 +108,6 @@
   flex-direction: column;
 }
 
-.text-center {
-  text-align: center;
-}
-
 .label {
   font-size: 25px;
   padding-top: 20px;
@@ -99,8 +117,10 @@
   opacity: 0.5;
   text-decoration: line-through;
   text-decoration-color: red;
+  padding: 5px 5px;
 }
 
 .disableCross {
+  padding: 5px 5px;
   cursor: not-allowed;
 }

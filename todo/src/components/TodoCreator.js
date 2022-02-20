@@ -12,7 +12,7 @@ const TodoCreator = ({ newTodo, handleNewTodo, addNewTodo }) => {
           onChange={(event) => handleNewTodo(event)}
         />
         <button className="button-submit" type="submit" onClick={addNewTodo}>
-          add
+          Create
         </button>
       </form>
     </div>
