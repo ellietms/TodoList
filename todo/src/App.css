@@ -33,6 +33,13 @@
   border-bottom: 5px solid rgb(187, 187, 187);
 }
 
+.empty-list-text {
+  font-family: "Shizuru", cursive;
+  color: black;
+  font-size: 60px;
+  text-align: center;
+}
+
 .button-submit {
   font-size: large;
   font-weight: bold;

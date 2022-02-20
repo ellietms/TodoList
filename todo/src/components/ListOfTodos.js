@@ -42,7 +42,9 @@ const listOfTodos = ({
   } else {
     page = (
       <div className="text-center">
-        <h3>Please add something for your todo list!</h3>
+        <h3 className="empty-list-text">
+          Please add something for your todo list!
+        </h3>
       </div>
     );
   }
