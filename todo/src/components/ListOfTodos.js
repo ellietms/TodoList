@@ -32,7 +32,6 @@ const listOfTodos = ({
                     handleEdit={handleEdit}
                     setEditAvailable={setEditAvailable}
                     listOfTodos={listOfTodos}
-                    // completedTodoClass={completedTodoClass}
                   />
                 </div>
               )}
