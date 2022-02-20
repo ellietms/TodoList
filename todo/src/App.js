@@ -10,8 +10,6 @@ function App() {
   const [listOfTodos, setListOfTodos] = useState([]);
   const [editAvailable, setEditAvailable] = useState(false);
 
-  useEffect(() => {}, []);
-
   const handleNewTodo = (event) => {
     setNewTodo(event.target.value);
   };
@@ -59,8 +57,6 @@ function App() {
       setEditAvailable(true);
     }
   };
-
-  console.log("TOdos Sorted", listOfTodos);
 
   const handleOnDragEnd = (draggedTodo) => {
     const newOrderedTodoList = [...listOfTodos];
