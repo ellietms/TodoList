@@ -10,7 +10,6 @@ function App() {
   const [listOfTodos, setListOfTodos] = useState([]);
   const [editAvailable, setEditAvailable] = useState(false);
   const [completedTodoClass, setCompletedTodoClass] = useState();
-  const [id, setId] = useState(0);
 
   useEffect(() => {}, [completedTodoClass]);
 
@@ -19,7 +18,6 @@ function App() {
   };
 
   const addNewTodo = (event) => {
-    setId(id + 1);
     event.preventDefault();
     setListOfTodos([
       ...listOfTodos,
@@ -27,15 +25,12 @@ function App() {
         text: newTodo,
         edit: false,
         id: nanoid(),
-        sort: id,
         checked: null,
         classCross: null,
       },
     ]);
     setNewTodo("");
   };
-
-  console.log("IDS", id);
 
   const handleDoneTodo = (clickedtodo) => {
     const index = listOfTodos.findIndex((todo) => todo.id === clickedtodo.id);
