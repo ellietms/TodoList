@@ -69,7 +69,7 @@ function App() {
   };
 
   let pageModel = (
-    <div>
+    <div className="body-container">
       <div className="container">
         <h2>Todo List</h2>
         <TodoCreator
