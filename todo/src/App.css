@@ -1,3 +1,8 @@
+html {
+  background-image: url("https://i.pinimg.com/736x/92/c6/57/92c657c73f80669ebc179017fb710b8a.jpg");
+  background-size: auto;
+}
+
 .body-container {
   border: 1px solid black;
   padding: 10px;
