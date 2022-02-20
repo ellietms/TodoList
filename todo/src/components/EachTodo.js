@@ -33,13 +33,17 @@ const Todo = ({ eachTodo, handleDoneTodo, handleEdit, setEditAvailable }) => {
           onClick={(event) => handleDoneTodo(eachTodo)}
           className="todo-button-style"
         >
-          <i className="fas fa-check"></i>
+          <span style={{ color: "green" }}>
+            <i className="fas fa-check"></i>
+          </span>
         </button>
         <button
           onClick={(event) => handleEdit(eachTodo)}
           className="todo-button-style"
         >
-          <i className="fa fa-pen"></i>
+          <span style={{ color: "blue" }}>
+            <i className="fa fa-pen"></i>
+          </span>
         </button>
       </div>
     );
@@ -50,7 +54,7 @@ const Todo = ({ eachTodo, handleDoneTodo, handleEdit, setEditAvailable }) => {
           onClick={(event) => handleDoneTodo(eachTodo)}
           className="todo-button-style"
         >
-          X
+          <span style={{ color: "red" }}>X</span>
         </button>
       </div>
     );
