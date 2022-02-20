@@ -7,7 +7,7 @@ const Todo = ({
   handleDoneTodo,
   handleEdit,
   setEditAvailable,
-  completedTodoClass,
+  // completedTodoClass,
 }) => {
   const [inputValue, setInputValue] = useState(eachTodo.text);
 

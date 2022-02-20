@@ -7,7 +7,7 @@ const listOfTodos = ({
   handleDoneTodo,
   handleEdit,
   setEditAvailable,
-  completedTodoClass,
+  // completedTodoClass,
 }) => {
   let page;
   if (listOfTodos.length !== 0) {
@@ -32,7 +32,7 @@ const listOfTodos = ({
                     handleEdit={handleEdit}
                     setEditAvailable={setEditAvailable}
                     listOfTodos={listOfTodos}
-                    completedTodoClass={completedTodoClass}
+                    // completedTodoClass={completedTodoClass}
                   />
                 </div>
               )}
