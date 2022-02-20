@@ -4,10 +4,11 @@ import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 import TodoCreator from "./components/TodoCreator";
 import ListOfTodos from "./components/ListOfTodos";
 import { nanoid } from "nanoid";
+import useLocalStorage from "./localStorage/useLocalStorage";
 
 function App() {
   const [newTodo, setNewTodo] = useState("");
-  const [listOfTodos, setListOfTodos] = useState([]);
+  const [listOfTodos, setListOfTodos] = useLocalStorage("todos", []);
   const [editAvailable, setEditAvailable] = useState(false);
 
   const handleNewTodo = (event) => {
