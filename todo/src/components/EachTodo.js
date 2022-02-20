@@ -33,13 +33,13 @@ const Todo = ({ eachTodo, handleDoneTodo, handleEdit, setEditAvailable }) => {
           onClick={(event) => handleDoneTodo(eachTodo)}
           className="todo-button-style"
         >
-          completed
+          <i className="fas fa-check"></i>
         </button>
         <button
           onClick={(event) => handleEdit(eachTodo)}
           className="todo-button-style"
         >
-          Edit
+          <i className="fa fa-pen"></i>
         </button>
       </div>
     );
@@ -50,7 +50,7 @@ const Todo = ({ eachTodo, handleDoneTodo, handleEdit, setEditAvailable }) => {
           onClick={(event) => handleDoneTodo(eachTodo)}
           className="todo-button-style"
         >
-          not completed
+          X
         </button>
       </div>
     );
