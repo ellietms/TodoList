@@ -32,7 +32,6 @@ function App() {
 
   const handleDoneTodo = (clickedtodo) => {
     const index = listOfTodos.findIndex((todo) => todo.id === clickedtodo.id);
-    console.log("clicked index", index);
     if (
       listOfTodos[index].checked == null ||
       listOfTodos[index].checked == false

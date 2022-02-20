@@ -25,36 +25,34 @@ const Todo = ({ eachTodo, handleDoneTodo, handleEdit, setEditAvailable }) => {
     </div>
   );
 
-  let showEditButton;
+  let showButtons;
   if (eachTodo.checked === false || eachTodo.checked === null) {
-    showEditButton = (
-      <button
-        onClick={(event) => handleEdit(eachTodo)}
-        className="todo-button-style"
-      >
-        Edit
-      </button>
-    );
-  }
-
-  let showDoneButton;
-  if (eachTodo.checked === false || eachTodo.checked === null) {
-    showDoneButton = (
-      <button
-        onClick={(event) => handleDoneTodo(eachTodo)}
-        className="todo-button-style"
-      >
-        completed
-      </button>
+    showButtons = (
+      <div className="buttons-container">
+        <button
+          onClick={(event) => handleDoneTodo(eachTodo)}
+          className="todo-button-style"
+        >
+          completed
+        </button>
+        <button
+          onClick={(event) => handleEdit(eachTodo)}
+          className="todo-button-style"
+        >
+          Edit
+        </button>
+      </div>
     );
   } else {
-    showDoneButton = (
-      <button
-        onClick={(event) => handleDoneTodo(eachTodo)}
-        className="todo-button-style"
-      >
-        not completed
-      </button>
+    showButtons = (
+      <div className="buttons-container">
+        <button
+          onClick={(event) => handleDoneTodo(eachTodo)}
+          className="todo-button-style"
+        >
+          not completed
+        </button>
+      </div>
     );
   }
 
@@ -63,10 +61,7 @@ const Todo = ({ eachTodo, handleDoneTodo, handleEdit, setEditAvailable }) => {
     todoBox = (
       <div className="eachTodo text-center">
         <label className={eachTodo.classCross}>{eachTodo.text}</label>
-        <div className="buttons-container">
-          {showDoneButton}
-          {showEditButton}
-        </div>
+        {showButtons}
       </div>
     );
   } else {
