@@ -2,7 +2,13 @@
 import React, { useState } from "react";
 import "../App.css";
 
-const Todo = ({ eachTodo, handleDoneTodo, handleEdit, setEditAvailable }) => {
+const Todo = ({
+  eachTodo,
+  handleDoneTodo,
+  handleEdit,
+  handleDelete,
+  setEditAvailable,
+}) => {
   const [inputValue, setInputValue] = useState(eachTodo.text);
 
   const handleEditFormText = (event) => {
@@ -45,6 +51,11 @@ const Todo = ({ eachTodo, handleDoneTodo, handleEdit, setEditAvailable }) => {
         >
           <span style={{ color: "blue" }}>
             <i className="fa fa-pen"></i>
+          </span>
+        </button>
+        <button onClick={(event) => handleDelete(eachTodo)}>
+          <span style={{ color: "red" }}>
+            <i class="fa fa-trash"></i>
           </span>
         </button>
       </div>

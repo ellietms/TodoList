@@ -6,6 +6,7 @@ const listOfTodos = ({
   listOfTodos,
   handleDoneTodo,
   handleEdit,
+  handleDelete,
   setEditAvailable,
 }) => {
   let page;
@@ -29,6 +30,7 @@ const listOfTodos = ({
                     eachTodo={eachTodo}
                     handleDoneTodo={handleDoneTodo}
                     handleEdit={handleEdit}
+                    handleDelete={handleDelete}
                     setEditAvailable={setEditAvailable}
                     listOfTodos={listOfTodos}
                   />

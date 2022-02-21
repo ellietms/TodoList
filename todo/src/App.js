@@ -47,6 +47,13 @@ function App() {
     setListOfTodos([...listOfTodos]);
   };
 
+  const handleDelete = (event) => {
+    let filteredList = listOfTodos.filter((todo) => todo.id !== event.id);
+    console.log(event);
+    setListOfTodos(filteredList);
+    setNewTodo("");
+  };
+
   const handleEdit = (event) => {
     let currentTodo = listOfTodos.find((todo) => todo.text === event.text);
     if (currentTodo.edit == true) {
@@ -87,6 +94,7 @@ function App() {
                   listOfTodos={listOfTodos}
                   handleDoneTodo={(event) => handleDoneTodo(event)}
                   handleEdit={(event) => handleEdit(event)}
+                  handleDelete={(event) => handleDelete(event)}
                   setEditAvailable={setEditAvailable}
                 />
                 {provided.placeholder}
