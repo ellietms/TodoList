@@ -49,7 +49,6 @@ function App() {
 
   const handleDelete = (event) => {
     let filteredList = listOfTodos.filter((todo) => todo.id !== event.id);
-    console.log(event);
     setListOfTodos(filteredList);
     setNewTodo("");
   };
