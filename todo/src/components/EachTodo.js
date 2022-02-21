@@ -15,6 +15,7 @@ const Todo = ({
     setInputValue(event.target.value);
   };
 
+  // The thing this is passed isn't an event, so event is a quite misleading name for the parameter - can you think of a more clear name?
   const submitNewTodo = (event) => {
     event.text = inputValue;
     setEditAvailable(false);
@@ -28,12 +29,14 @@ const Todo = ({
         onChange={(event) => handleEditFormText(event)}
       />
       <button onClick={(event) => submitNewTodo(eachTodo)}>
+        {/*Is submit the most suitable verb for what the user is doing when pressing this button? Can you think of a more clear word? */}
         <span style={{ color: "green" }}>submit</span>
       </button>
     </div>
   );
 
   let showButtons;
+  // Why can't someone delete or edit a completed to do?
   if (eachTodo.checked === false || eachTodo.checked === null) {
     showButtons = (
       <div className="buttons-container">
@@ -82,6 +85,7 @@ const Todo = ({
       </div>
     );
   } else {
+    // What does the `eachTodo.edit == true` here do?
     todoBox = (
       <div className="eachTodo">{eachTodo.edit == true && editForm}</div>
     );
