@@ -7,6 +7,7 @@ const TodoCreator = ({ newTodo, handleNewTodo, addNewTodo }) => {
       <form className="form-container">
         <input
           className="input-container"
+          placeholder="add something todo.."
           type="text"
           value={newTodo}
           onChange={(event) => handleNewTodo(event)}

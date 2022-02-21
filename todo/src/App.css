@@ -11,7 +11,7 @@ html {
   box-shadow: rgb(187, 187, 187) 35px 30px;
 }
 
-.header {
+.font {
   font-family: "Shizuru", cursive;
   color: black;
   font-size: 60px;
@@ -36,6 +36,7 @@ html {
   width: 60%;
   border: none;
   border-bottom: 5px solid rgb(187, 187, 187);
+  font-family: "Akaya Telivigala", cursive;
 }
 
 .empty-list-text {

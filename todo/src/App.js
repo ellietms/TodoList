@@ -78,7 +78,7 @@ function App() {
   let pageModel = (
     <div className="body-container">
       <div className="container">
-        <h2 className="header">Todo List</h2>
+        <h2 className="font">Todo List</h2>
         <TodoCreator
           handleNewTodo={handleNewTodo}
           addNewTodo={addNewTodo}
